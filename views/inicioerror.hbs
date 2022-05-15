@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Buscar ciudad</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+  <h1 class="display-4">No se encontro la ciudad :(</h1>
+  <p class="lead">Probá devuelta.</p>
+  <hr class="my-4">
+<a href="/"><button type="button" class="btn btn-primary">Volver</button></a>
+</div>
+<script type="text/javascript">
+function redireccionar() {
+  var ciudadinput = document.getElementById('ciudad').value
+  window.location.replace("/?city=" + ciudadinput);
+}
+</script>
+  </body>
+</html>

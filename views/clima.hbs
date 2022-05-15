@@ -1,0 +1,56 @@
+<html lang="en" dir="ltr">
+  <head>
+    <title>Clima en {{ciudad}}</title>
+  </head>
+  <body>
+    <style media="screen">
+    .carousel-control-prev-icon { background-color: black; }
+    .carousel-control-next-icon {  background-color: black;  }
+    </style>
+    <div class="container">
+        <div id="carouselContent" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                {{#each varClimaTemperatura}}
+                {{#ifCond this.[4] ../varClimaTemperatura.[0].[4]}}<div class="carousel-item active text-center p-4">{{else}}<div class="carousel-item text-center p-4">{{/ifCond}}
+                    <div class="card text-center">
+                      <div class="card-header">
+                        {{#ifCond this.[4] ../varClimaTemperatura.[0].[4]}}Hoy{{else}}{{#ifCond this.[4] ../varClimaTemperatura.[1].[4]}}Mañana{{else}}{{this.[4]}}{{/ifCond}}{{/ifCond}}
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">{{this.[6]}}, {{this.[0]}}°C </h3>
+                        <p class="card-text">T° Maxima: {{this.[2]}}°C, T° minima: {{this.[1]}}°C, sensacion termica: {{this.[3]}}°C</p> <br>
+                        <p class="card-text">{{#ifCond this.[4] ../varClimaTemperatura.[0].[4]}}Esta{{else}}Estara{{/ifCond}} {{this.[5]}} en {{this.[6]}} el {{this.[4]}}.</p>
+                      </div>
+                      <div class="card-footer text-muted">
+                        <p class="card-text">¿Queres buscar mas ciudades?</p>
+                        <a href="/" class="btn btn-primary">Volver al inicio</a>
+                      </div>
+                    </div>
+                  </div>
+                   {{/each}}
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a>
+</div>
+</div>
+<div class="card">
+  <div class="card-header">
+    Datos
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <footer class="blockquote-footer">La temperatura maxima promedio sera de {{temperaturamaxprom}}°C</footer>
+      <footer class="blockquote-footer">El dia mas ventoso sera el {{vientoTiempo1}} con {{vientoTiempo2}}m/s</footer>
+      <footer class="blockquote-footer">{{lluvia}} en {{ciudad}} esta semana</footer>
+    </blockquote>
+  </div>
+</div>
+  </body>
+</html>
